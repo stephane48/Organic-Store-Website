@@ -18,7 +18,10 @@ app.engine('hbs',exphbs({
     layoutsDir: __dirname+'/views/'
 }));
 app.set('view engine','hbs');
-app.listen(3000,()=>{
-    console.log('Server on port: 3000');
-});
+var HTTP_PORT = process.env.port || 5050;
+function onHttpStart() {
+console.log("Express http server listening on: " + HTTP_PORT);
+}
+
+app.listen(HTTP_PORT, onHttpStart);
 app.use('/',orderController);
