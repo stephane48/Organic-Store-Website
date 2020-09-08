@@ -1,4 +1,5 @@
 require('./models/db');
+require('dotenv').config({path:"./config/keys.env"});
 const express= require('express');
 const path= require('path');
 const exphbs=require('express-handlebars');
